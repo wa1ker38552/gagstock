@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grow A Garden Stock | GAGSTOCK</title>
+        <link rel="icon" href="/static/assets/logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://lib.reklaw.dev/styles/minimalistic.css">
+        <link rel="stylesheet" href="/static/styles/globals.css">
+        <link rel="stylesheet" href="/static/styles/style.css">
+        <script>
+            const version = "{{version}}"
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js"></script>
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+        <script src="https://lib.reklaw.dev/lib.js"></script>
+        <script src="/static/scripts/script.js"></script>
+        <script src="/static/scripts/index_load.js"></script>
+    </head>
+    <body>
+        <div id="loadingScreen" class="centered-children"><span class="loader"></span></div>
+        <div class="navigation centered-vertically">
+            <div>
+                <h1>GAGSTOCK</h1>
+                <span class="label">Grow A Garden Tool</span>
+            </div>
+            <div class="horizontal-container navigation-right-container">
+                <a href="/" class="selected-navigation">HOME</a>
+                <a href="/stock">STOCK</a>
+                <a href="/weather">WEATHER</a>
+                <a href="/chances">CHANCES</a>
+                <a href="/demand">DEMAND</a>
+                <a href="/api">API</a>
+            </div>
+        </div>
+        <div class="navigation-border"></div>
+        <div class="wrapper centered-horizontally">
+            <div class="content">
+                <div style="text-align: center;" class="update">
+                    <h1 class="accent-header" style="font-size: 2.5rem">GAGSTOCK</h1>
+                    <div class="break"></div>
+                    <h3 style="color: var(--color); font-weight: normal"><span class="accent">GAGSTOCK</span> is your go-to source to view many types of data related to <span class="accent">Grow A Garden!</span> Additionally, we also offer an <span class="accent">API</span> for developers who want to use this data completely free of charge.</h3>
+                </div>
+                <h1>Latest Updates</h1>
+                <div class="label accent">In case you're not on the Discord server!</div>
+                <div class="break"></div>
+                <div id="updateContainer"></div>
+            </div>
+        </div>
+    </body>
+</html>

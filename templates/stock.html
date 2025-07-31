@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stock | GAGSTOCK</title>
+        <link rel="icon" href="/static/assets/logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://lib.reklaw.dev/styles/minimalistic.css">
+        <link rel="stylesheet" href="/static/styles/globals.css">
+        <link rel="stylesheet" href="/static/styles/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js"></script>
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+        <script src="https://lib.reklaw.dev/lib.js"></script>
+        <script src="/static/scripts/script.js"></script>
+        <script src="/static/scripts/stock_load.js"></script>
+    </head>
+    <body>
+        <div id="loadingScreen" class="centered-children"><span class="loader"></span></div>
+        <div class="navigation centered-vertically">
+            <div>
+                <h1>GAGSTOCK</h1>
+                <span class="label">Grow A Garden Tool</span>
+            </div>
+            <div class="horizontal-container navigation-right-container">
+                <a href="/">HOME</a>
+                <a href="/stock" class="selected-navigation">STOCK</a>
+                <a href="/weather">WEATHER</a>
+                <a href="/chances">CHANCES</a>
+                <a href="/demand">DEMAND</a>
+                <a href="/api">API</a>
+            </div>
+        </div>
+        <div class="navigation-border"></div>
+        <div class="wrapper centered-horizontally">
+            <div class="content">
+                <h1>Stock</h1>
+                <div class="label accent">Stock data for seeds, gear, eggs, and cosmetics. For the api, go <a href="/api">here</a></div>
+                <div class="break"></div>
+                <div class="update-container">
+                    <div>
+                        <h4>UPDATES IN</h4>
+                        <h1 id="updateTimer">00:00</h1>
+                    </div>
+                    <div>
+                        <h4>DATA LAST REFRESHED</h4>
+                        <h1 id="lastRefreshed">N/A</h1>
+                    </div>
+                </div>
+                <div class="break"></div>
+                <div class="horizontal-container" style="gap: 1rem">
+                    <button class="tag selected-tag" onclick="setStockSelection(0, this)">Seeds</button>
+                    <button class="tag" onclick="setStockSelection(1, this)">Gears</button>
+                    <button class="tag" onclick="setStockSelection(2, this)">Eggs</button>
+                    <button class="tag" onclick="setStockSelection(3, this)">Cosmetics</button>
+                </div>
+                <div class="break"></div>
+                <div id="stockContainer"></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+body {
+    font-family: "Comic Neue";
+    font-weight: 700;
+    color: white;
+    text-shadow: 
+        -2px 0 black, 
+        0 2px black, 
+        2px 0 black, 
+        0 -2px black;
+    padding: 1rem;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.stud {
+    background-image: url('/static/assets/texture.png');
+    background-size: 100px 100px;
+}
+
+.wrapper {
+    position: relative;
+    overflow: auto;
+    border: solid 3px black;
+    width: 50rem;
+    height: 100%;
+    background-color: var(--secondary);
+}
+
+.header {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+}
+
+.content {
+    padding: 1rem;
+}
+
+.box {
+    width: 100%;
+    border: solid 3px black;
+}
+
+.box-header {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.15); 
+    backdrop-filter: blur(3px);   
+}
+
+.box-content {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+}
+
+#eggContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    position: relative;
+    border: solid 3px black;
+    width: 100%;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-header {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(3px);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 0.5rem;
+}
+
+.card-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem;
+    color: var(--accent);
+    line-height: 2rem;
+}
+
+#lastUpdated {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+}

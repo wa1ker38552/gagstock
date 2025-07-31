@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grow A Garden API</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://lib.reklaw.dev/styles/minimalistic.css">
+        <link rel="stylesheet" href="/static/globals.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <script>
+            const version = "{{version}}"
+        </script>
+        <script src="https://lib.reklaw.dev/lib.js"></script>
+        <script src="/static/script.js"></script>
+    </head>
+    <body class="centered-children">
+        <div class="wrapper stud">
+            <div class="header stud">
+                <h1>Grow A Garden API</h1>
+                <h3>Version {{version}}</h3>
+                <h3 id="lastUpdated"></h3>
+            </div>
+            <div class="content vertical-container" style="gap: 1rem">
+                <div class="box" style="background: linear-gradient(rgba(235, 64, 52, 0.8), rgba(235, 64, 52, 0.5));">
+                    <div class="box-header">
+                        <h2>About</h2>
+                    </div>
+                    <div class="box-content">
+                        Grow A Garden API allows you to view the stock data for <span class=accent>seeds</span>, <span class=accent>eggs</span>, <span class=accent>cosmetics</span>, and <span class=accent>gears</span>. It also allows developers who want to make their own apps to use this API for free. There are no rate limits but the data is cached regardless so there is no point in spamming it. Data is updated roughly every 10 seconds.
+                    </div>
+                </div>
+                <div class="box" style="background: linear-gradient(rgba(173, 245, 66, 0.8), rgba(173, 245, 66, 0.5));">
+                    <div class="box-header">
+                        <h2>Endpoints</h2>
+                    </div>
+                    <div class="box-content">
+                        <div><a href="/api/data">/api/data</a> - All data in one place</div>
+                        <div><a href="/api/last_updated">/api/last_updated</a> - Time when data last updated</div>
+                        <div><a href="/api/seeds">/api/seeds</a> - Seed stock data only</div>
+                        <div><a href="/api/eggs">/api/eggs</a> - Egg stock data only</div>
+                        <div><a href="/api/gear">/api/gear</a> - Gear stock data only</div>
+                        <div><a href="/api/cosmetics">/api/cosmeitcs</a> - Cosmetic stock data only</div>
+                    </div>
+                </div>
+                <div class="box" style="background: linear-gradient(rgba(49, 198, 224, 0.8), rgba(49, 198, 224, 0.5));">
+                    <div class="box-header">
+                        <h2>Seed Stock</h2>
+                    </div>
+                    <div class="box-content">
+                        <div class="card-container" id="seedContainer"></div>
+                    </div>
+                </div>
+                <div class="box" style="background: linear-gradient(rgba(255, 215, 105, 0.8), rgba(255, 215, 105, 0.5));">
+                    <div class="box-header">
+                        <h2>Gear Stock</h2>
+                    </div>
+                    <div class="box-content">
+                        <div class="card-container" id="gearContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

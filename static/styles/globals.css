@@ -1,0 +1,8 @@
+:root {
+    --accent: #00b400;
+    --accent-transparent-1: rgb(0, 180, 0, 0.1);
+    --accent-transparent-2: rgb(0, 180, 0, 0.5);
+    --background: rgb(20, 20, 20);
+    --background-dark: rgb(10, 10, 10);
+    --color: rgb(177, 180, 177);
+}
