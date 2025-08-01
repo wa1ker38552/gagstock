@@ -12,11 +12,11 @@ function renderSeedSelection(parent, data) {
             const e = dcreate("div", "stock-item", `
             <h3>${item.name}</h3>
             <div class='centered-children'>
-                <img src='/proxy/${item.image.replace('rbxassetid://', '')}'>
+                <img src='/proxy/${item.image ? item.image.replace('rbxassetid://', '') : ""}'>
             </div>
             <div class='text-container'>
                 <h4>Cost</h4>
-                <h4>${item.cost.toLocaleString()}</h4>
+                <h4>${item.cost ? item.cost.toLocaleString() : "N/A"}</h4>
                 <h4>Rarity</h4>
                 <h4>${item.rarity}</h4>
                 <h4>Stock</h4>
@@ -98,7 +98,7 @@ function renderCosmeticSelection(parent, data) {
             const e = dcreate("div", "stock-item", `
             <h3 class='centered-children'>${item.name}</h3>
             <div class='centered-children'>
-                <img src='/proxy/${item.image.replace('rbxassetid://', '')}'>
+                <img src='/proxy/${item.image ? item.image.replace('rbxassetid://', '') : ""}'>
             </div>
             <div class='text-container'>
                 <h4>Cost</h4>

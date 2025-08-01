@@ -1,4 +1,5 @@
 from collections import defaultdict
+from datetime import datetime
 from threading import Thread
 from tqdm import tqdm
 import requests
@@ -88,6 +89,7 @@ def update_stock(item_index):
                 stock_data[i][1] = item_index[item[1]]
 
         all_stock_data[title] = stock_data
+        all_stock_data[title+'_timer'] = datetime.fromisoformat(message['timestamp']).timestamp()
 
     all_stock_data['last_updated'] = time.time()
     return all_stock_data
@@ -120,5 +122,4 @@ def update_discord_worker(interval=20):
 item_index = refresh_ids()
 discord_stock_data = update_stock(item_index)
 discord_chance_data = update_chances(item_index)
-# discord_chance_data = update_chances(refresh_ids())
 discord_chance_ld = time.time()
