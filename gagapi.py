@@ -24,6 +24,9 @@ exploiter_worker_data = json.load(open('test.json', 'r'))
 full_data = exploiter_worker_data
 image_cache = {}
 
+def send_webhook(text):
+    requests.post("https://discord.com/api/webhooks/1400947756175982712/1RHExGUJ47sma13HzY1zlxYeSemmIuHI3Xo5a0_nfsK7e9uKzYDdbcSDTqQ4EC6AD-mf", json={"content": text})
+
 def update_discord_demand(interval=120):
     global discord_demand, discord_demand_lu
     while True:
@@ -69,27 +72,30 @@ def combine_data(discord, lookup):
 def concatenate_data(interval=1):
     global full_data
     while True:
-        # create lookups
-        egg_lookup = create_lookups(exploiter_worker_data['eggs']['data'])
-        gear_lookup = create_lookups(exploiter_worker_data['gear']['data'])
-        seed_lookup = create_lookups(exploiter_worker_data['seed']['data'])
+        try:
+            # create lookups
+            egg_lookup = create_lookups(exploiter_worker_data['eggs']['data'])
+            gear_lookup = create_lookups(exploiter_worker_data['gear']['data'])
+            seed_lookup = create_lookups(exploiter_worker_data['seed']['data'])
 
-        full_data = {
-            'cosmetics': exploiter_worker_data['cosmetics'],
-            'eggs': {
-                'data': combine_data(scrape_discord.discord_stock_data['Egg'], egg_lookup),
-                'timer': exploiter_worker_data['eggs']['timer']
-            },
-            'gear': {
-                'data': combine_data(scrape_discord.discord_stock_data['GearStock'], gear_lookup),
-                'timer': exploiter_worker_data['gear']['timer']
-            },
-            'seed': {
-                'data': combine_data(scrape_discord.discord_stock_data['SeedStock'], seed_lookup),
-                'timer': exploiter_worker_data['seed']['timer']
-            },
-            'last_updated': exploiter_worker_data['last_updated'] if exploiter_worker_data['last_updated'] > scrape_discord.discord_stock_data['last_updated'] else scrape_discord.discord_stock_data['last_updated']
-        }
+            full_data = {
+                'cosmetics': exploiter_worker_data['cosmetics'],
+                'eggs': {
+                    'data': combine_data(scrape_discord.discord_stock_data['Egg'], egg_lookup),
+                    'timer': exploiter_worker_data['eggs']['timer']
+                },
+                'gear': {
+                    'data': combine_data(scrape_discord.discord_stock_data['GearStock'], gear_lookup),
+                    'timer': exploiter_worker_data['gear']['timer']
+                },
+                'seed': {
+                    'data': combine_data(scrape_discord.discord_stock_data['SeedStock'], seed_lookup),
+                    'timer': exploiter_worker_data['seed']['timer']
+                },
+                'last_updated': exploiter_worker_data['last_updated'] if exploiter_worker_data['last_updated'] > scrape_discord.discord_stock_data['last_updated'] else scrape_discord.discord_stock_data['last_updated']
+            }
+        except Exception as e:
+            send_webhook(str(e), 'ERROR')
         time.sleep(interval)
 
 

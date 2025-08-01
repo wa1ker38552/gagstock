@@ -7,6 +7,9 @@ import json
 
 token = open('token.txt', 'r').read().strip()
 
+def send_webhook(text):
+    requests.post("https://discord.com/api/webhooks/1400947756175982712/1RHExGUJ47sma13HzY1zlxYeSemmIuHI3Xo5a0_nfsK7e9uKzYDdbcSDTqQ4EC6AD-mf", json={"content": text})
+
 def fetch(url):
     return requests.get(url, headers={'Authorization': token}).json()
 
@@ -108,8 +111,11 @@ def update_discord_worker(interval=20):
     global discord_stock_data
     Thread(target=refresh_chances, daemon=True).start()
     while True:
-        time.sleep(interval)
-        discord_stock_data = update_stock(item_index)
+        try:
+            time.sleep(interval)
+            discord_stock_data = update_stock(item_index)
+        except Exception as e:
+            send_webhook(str(e), 'Error from stock discord')
 
 item_index = refresh_ids()
 discord_stock_data = update_stock(item_index)
