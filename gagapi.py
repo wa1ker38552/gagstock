@@ -82,15 +82,15 @@ def concatenate_data(interval=1):
                 'cosmetics': exploiter_worker_data['cosmetics'],
                 'eggs': {
                     'data': combine_data(scrape_discord.discord_stock_data['Egg'], egg_lookup),
-                    'timer': 1800-(time.time()-scrape_discord.discord_stock_data['Egg_timer']) # exploiter_worker_data['eggs']['timer']
+                    'timer': int(1800-(time.time()-scrape_discord.discord_stock_data['Egg_timer'])) # exploiter_worker_data['eggs']['timer']
                 },
                 'gear': {
                     'data': combine_data(scrape_discord.discord_stock_data['GearStock'], gear_lookup),
-                    'timer': 300-(time.time()-scrape_discord.discord_stock_data['GearStock_timer']) #exploiter_worker_data['gear']['timer']
+                    'timer': int(300-(time.time()-scrape_discord.discord_stock_data['GearStock_timer'])) #exploiter_worker_data['gear']['timer']
                 },
                 'seed': {
                     'data': combine_data(scrape_discord.discord_stock_data['SeedStock'], seed_lookup),
-                    'timer': 300-(time.time()-scrape_discord.discord_stock_data['SeedStock_timer']) #exploiter_worker_data['seed']['timer']
+                    'timer': int(300-(time.time()-scrape_discord.discord_stock_data['SeedStock_timer'])) #exploiter_worker_data['seed']['timer']
                 },
                 'last_updated': exploiter_worker_data['last_updated'] if exploiter_worker_data['last_updated'] > scrape_discord.discord_stock_data['last_updated'] else scrape_discord.discord_stock_data['last_updated']
             }
