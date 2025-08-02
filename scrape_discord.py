@@ -117,7 +117,7 @@ def update_discord_worker(interval=20):
             time.sleep(interval)
             discord_stock_data = update_stock(item_index)
         except Exception as e:
-            send_webhook(str(e), 'Error from stock discord')
+            send_webhook(f'{str(e)} Error from stock discord')
 
 item_index = refresh_ids()
 discord_stock_data = update_stock(item_index)

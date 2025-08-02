@@ -78,7 +78,6 @@ def concatenate_data(interval=1):
             gear_lookup = create_lookups(exploiter_worker_data['gear']['data'])
             seed_lookup = create_lookups(exploiter_worker_data['seed']['data'])
 
-            print(1800-(time.time()-scrape_discord.discord_stock_data['Egg_timer']))
             full_data = {
                 'cosmetics': exploiter_worker_data['cosmetics'],
                 'eggs': {
@@ -96,7 +95,7 @@ def concatenate_data(interval=1):
                 'last_updated': exploiter_worker_data['last_updated'] if exploiter_worker_data['last_updated'] > scrape_discord.discord_stock_data['last_updated'] else scrape_discord.discord_stock_data['last_updated']
             }
         except Exception as e:
-            send_webhook(str(e), 'ERROR')
+            send_webhook(f'{str(e)} ERROR')
         time.sleep(interval)
 
 

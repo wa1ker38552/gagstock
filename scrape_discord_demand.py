@@ -56,7 +56,10 @@ def get_demand():
     #     json.dump(demand_data, file)
 
     if 'bee' in demand_data: del demand_data['bee']
-    threshold = max(list(demand_data.values()))
-    display_list = [[key, round((demand_data[key]/threshold) * 10, 2), demand_data[key]] for key in demand_data]
-    display_list.sort(key=lambda x: x[1])
-    return display_list[::-1]
+    try:
+        threshold = max(list(demand_data.values()))
+        display_list = [[key, round((demand_data[key]/threshold) * 10, 2), demand_data[key]] for key in demand_data]
+        display_list.sort(key=lambda x: x[1])
+        return display_list[::-1]
+    except:
+        return []
